@@ -116,6 +116,19 @@
             }
         }
 
+        @keyframes rotate-frame {
+
+            0% {
+                transform: rotate3D(1, 1, 1, 0deg);
+                -webkit-transform: rotate3D(1, 1, 1, 0deg);
+            }
+
+            100% {
+                transform: rotate3D(1, 1, 1, 360deg);
+                -webkit-transform: rotate3D(1, 1, 1, 360deg);
+            }
+        }
+
         .container {
             -webkit-animation: rotate-frame 30s linear infinite;
             animation: rotate-frame 30s linear infinite;
