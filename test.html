@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg {
+            height: 100vh;
+            background-color: #fff;
+            background-size: cover;
+        }
+
+        .rect-wrap {
+            position: relative;
+            perspective: 2000px;
+        }
+
+        .container {
+            width: 400px;
+            height: 400px;
+            transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+            transform-origin: 50% 50% 100px;
+            /* //设置3d空间的原点在平面中心再向Z轴移动200px的位置 */
+            -webkit-transform-origin: 50% 50% 100px;
+            /* left: 50%;
+        margin-left: -200px; */
+            top: 100px;
+        }
+
+        .size {
+            width: 200px;
+            height: 200px;
+        }
+
+        .slide {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            background: #000;
+            line-height: 200px;
+            text-align: center;
+            color: #fff;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .top {
+            background-color: #e54;
+            left: 100px;
+            top: -100px;
+            transform: rotateX(-90deg);
+            -webkit-transform: rotateX(-90deg);
+            transform-origin: bottom;
+            -webkit-transform-origin: bottom;
+        }
+
+        .bottom {
+            background-color: #154;
+            left: 100px;
+            bottom: -100px;
+            transform: rotateX(90deg);
+            -webkit-transform: rotateX(90deg);
+            transform-origin: top;
+            -webkit-transform-origin: top;
+        }
+
+        .left {
+            background-color: #554;
+            left: -100px;
+            bottom: 100px;
+            transform: rotateY(90deg);
+            -webkit-transform: rotateY(90deg);
+            transform-origin: right;
+            -webkit-transform-origin: right;
+        }
+
+        .right {
+            background-color: #854;
+            left: 300px;
+            bottom: 100px;
+            transform: rotateY(-90deg);
+            -webkit-transform: rotateY(-90deg);
+            transform-origin: left;
+            -webkit-transform-origin: left;
+        }
+
+        .front {
+            background-color: #a54;
+            left: 100px;
+            top: 100px;
+            transform: translateZ(200px);
+            -webkit-transform: translateZ(200px);
+        }
+
+        .back {
+            background-color: #5e4;
+            left: 100px;
+            top: 100px;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+        }
+
+        @keyframes rotate-frame {
+
+            0% {
+                transform: rotate3D(1, 1, 1, 0deg);
+                -webkit-transform: rotate3D(1, 1, 1, 0deg);
+            }
+
+            100% {
+                transform: rotate3D(1, 1, 1, 360deg);
+                -webkit-transform: rotate3D(1, 1, 1, 360deg);
+            }
+        }
+
+        .container {
+            -webkit-animation: rotate-frame 30s linear infinite;
+            animation: rotate-frame 30s linear infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg">
+        <div class="rect-wrap">
+            <!-- //舞台元素，设置perspective，让其子元素获得透视效果。 -->
+            <div class="container">
+                <!-- //容器，设置transform-style: preserve-3d，让其子元素在3D空间呈现 -->
+                <div class="top slide">
+                </div>
+                <!-- //立方体的六个面 -->
+                <div class="bottom slide">
+                </div>
+                <div class="left slide">
+                </div>
+                <div class="right slide">
+                </div>
+                <div class="front slide">
+                </div>
+                <div class="back slide">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
